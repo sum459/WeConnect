@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title: </strong>
+  <%= @post.title %>
+</p><br>
+
+<div>
+	<img src="<%= @post.avatar if @post.avatar? %>" height="42" width="42">
+</div><br>
+
+<p>
+  <%= @post.content %>
+</p><br>
+
+<div>
+ <video id="myVideo" width="320" height="176" controls>
+ <source src="<%= @post.video %>" type="video/mp4">
+ </video>
+</div><br>
+
+<%= link_to like_post_path(@post), class: "like", method: :put do %>
+    <button type="button" class="btn btn-info" aria-label="Left Align">
+      <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
+      <span class="badge"><%= @post.get_upvotes.size %></span>
+    </button>
+  <% end %>
+
+  <%= link_to dislike_post_path(@post), class: "like", method: :put do %>
+    <button type="button" class="btn btn-info" aria-label="Left Align">
+      <span class="glyphicon glyphicon-thumbs-down glyphicon-align-center" aria-hidden="true"></span>
+      <span class="badge"><%= @post.get_downvotes.size %></span>
+    </button>
+  <% end %>
+
+<% if @post.user == current_user || current_user.try(:admin?) %>
+ <%= link_to 'Edit', edit_post_path(@post) %>
+<% end %><br>
+
+<%= commontator_thread(@post) %><br>
+
+<%= link_to 'Back', posts_path %>
+
+

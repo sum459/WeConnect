@@ -1,0 +1,16 @@
+<h1> New Post Created </h1>
+
+<div>
+  
+  <p><%= @post.title %></p> 
+
+<table>
+  <div style="border:1px solid; text-align: center ; margin-left: auto ; margin-right: auto ;">
+    <video poster="http://localhost:3000<%= @post.video.url(:thumb) %>" width="100%" height="50%" controls="controls">
+      <source src="http://localhost:3000<%= @post.video %>" type="video/mp4" />
+        <a href="http://localhost:3000<%= @post.video %>"><img src="http://localhost:3000<%= @post.video.url(:thumb) %>"  width="100%" height="50%" alt="image instead of video" /></a>
+    </video>
+   </div>
+</table>
+
+</div>
