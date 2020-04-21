@@ -3,6 +3,9 @@ class User < ApplicationRecord
  acts_as_voter
  has_many :posts
  acts_as_commontator
+
+ mount_uploader :avatar, AvatarUploader
+  serialize :avatar, JSON
  
   
   # Include default devise modules. Others available are:
