@@ -51,7 +51,7 @@ class VideoUploader < CarrierWave::Uploader::Base
       def convert_to_gif
         target_path = convert_name(current_path)
 
-        system("ffmpeg -ss 0 -t 5 -i #{current_path}  #{target_path}")
+        system("ffmpeg -ss 0 -t 10 -i #{current_path}  #{target_path}")
       
 
         file.delete
@@ -69,9 +69,9 @@ class VideoUploader < CarrierWave::Uploader::Base
 
   # # Override the filename of the uploaded files:
   # # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # # def filename
-  # #   "something.jpg" if original_filename
-  # # end
+   # def filename
+   #  "#{current_path.chomp('.mp4')}.gif" if "#{current_path}"
+   # end
 
   def convert_name(value)
     "#{value.chomp('.mp4')}.gif"

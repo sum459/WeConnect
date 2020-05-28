@@ -2,25 +2,35 @@
   
 
             <div class="panel panel-info"><!-- Panel Info -->
-
+                  
+                  <a href="<%= post_path(post) %>">
                   <div class="panel-heading">
                     <h3 class="panel-title"><%= link_to post.title, post_path(post) %></h3>
-                    <p><%= link_to post.content, post_path(post) %></p>
+                    <div style="color: #3BB2D6;"><%= time_ago_in_words(post.created_at) %></div>
                   </div>
 
                   <div class="panel-body"><!-- Panel Body -->
-                    <div style="color: #3BB2D6;"><%= time_ago_in_words(post.created_at) %>
+                      
+                      <% if post.content != "" %>
+                      <p><%= link_to post.content, post_path(post) %></p>
+                      <% end %>
+
+                      <% if post.avatar? %>
                       <div><img src="<%= post.avatar if post.avatar? %>" height="42" width="42"> 
                       </div><br><br>
+                      <% end %>
                       
+                      <% if post.video? %>
                        <div>
-                        <video id="myVideo" width="320" height="176" controls>
-                        <source src="<%= post.video %>" type="video/mp4">
-                        </video>
-                       </div>
-
-                    </div>
-                    <br>
+                        <% if post.video.url(:thumb).split('.').last == "mp4" %>
+                          <% a = post.video.url(:thumb).chomp("mp4")+"gif" %>
+                        <% else %>
+                          <% a = post.video.url(:thumb) %>
+                        <% end %>
+                        <a href="<%= a %>" download>
+                      <image controls width="100" height="100"  <%= image_tag a %>
+                       </div><br>
+                      <% end %>
 
                     <%= link_to like_post_path(post), class: "like", remote: true, method: :put do %>
                       <button type="button" class="btn btn-info" aria-label="Left Align">

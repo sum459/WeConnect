@@ -5,19 +5,23 @@
   <%= @post.title %>
 </p><br>
 
+<% if @post.avatar? %>
 <div>
-	<img src="<%= @post.avatar if @post.avatar? %>" height="42" width="42">
+  <img src="<%= @post.avatar %>" height="42" width="42">
 </div><br>
+<% end %>
 
 <p>
   <%= @post.content %>
 </p><br>
 
+<% if @post.video? %>
 <div>
  <video id="myVideo" width="320" height="176" controls>
  <source src="<%= @post.video %>" type="video/mp4">
  </video>
 </div><br>
+<% end %>
 
 <%= link_to like_post_path(@post), class: "like", method: :put do %>
     <button type="button" class="btn btn-info" aria-label="Left Align">
