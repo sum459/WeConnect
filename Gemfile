@@ -61,3 +61,8 @@ gem 'jquery-rails'
 gem 'sassc-rails'
 gem 'bootstrap-sass'
 gem 'acts_as_votable'
+
+# For google sign-in
+gem 'omniauth-google-oauth2'
+# For facebook login
+gem 'omniauth-facebook'
