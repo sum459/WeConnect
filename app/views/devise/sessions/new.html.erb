@@ -1,8 +1,13 @@
-<h2>Log in</h2>
+<body>
+  <div class="form-div">
+
+    <div class="info-div">
+      Log In 
+    </div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :login %><br />
+    <%= f.label "Email/UserName" %><br />
     <%= f.text_field :login, autofocus: true, autocomplete: "email/username" %>
   </div>
 
@@ -19,8 +24,11 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class: "btn btn-large btn-primary" %>
   </div>
 <% end %>
+</div>
+</body>
 
 <%= render "devise/shared/links" %>
+

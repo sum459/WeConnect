@@ -1,0 +1,54 @@
+.body {
+		background: #DCDCDC
+	}
+
+
+
+
+
+.form-div {	width: 25%; 
+		border: 2px solid #2F4F4F;
+		border-radius: 2px;
+		background: #F8F8FF; 
+		font-weight: bold;
+		padding: 20px;
+		margin: auto;
+
+	}
+
+
+
+.info-div {
+
+	width: 100%;
+	text-align: center;
+	border-radius: 5px;
+	font-weight: bold;
+	color: #2F4F4F;
+	font-size: 20px;
+	margin-bottom: 15px;
+}
+
+
+
+.submit_button {
+	display: block;
+	background: #9370DB;
+	border-radius: 2px;
+	color: white;
+	padding: 10px 30px;
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	margin: 15px auto 0px;
+	border: 2px solid #9370DB;
+
+}
+
+.submit_button:hover{
+	cursor: pointer;
+	color: white;
+	background: #9400D3;
+
+}
